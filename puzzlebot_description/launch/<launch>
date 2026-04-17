@@ -27,3 +27,5 @@
     args="-name puzzlebot -topic robot_description" output="screen" /></node>
 
 </launch>
+
+puzzlebot_gazebo

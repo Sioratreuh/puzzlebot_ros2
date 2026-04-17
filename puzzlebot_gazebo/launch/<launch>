@@ -1,0 +1,13 @@
+<launch>
+    <let name="world" value="$(find-pkg-share puzzlebot_gazebo)/worlds/maze.world)" />|
+    <let name="puzzlebot_description_path" 
+        value="$(find-pkg-share puzzlebot_description)/launch/puzzlebot_description.launch.xml" />|
+    <let name="gazebo_bridge_config_path" 
+        value="$(find-pkg-share puzzlebot_gazebo)/config/gazebo_bridge.yaml" />|
+    <let name="x_pose" value="1.35" />|
+    <let name="y_pose" value="0.0" />|
+    <arg name="use_sim_time" default="true" />|
+    <arg name="headless" default="false" />|
+
+
+</launch>
