@@ -1,0 +1,85 @@
+# GENERADO CON CLAUDE REMPLAZAR CON ARCHIVOS PROPIOS
+
+slam_toolbox:
+  ros__parameters:
+    # Use the online synchronous SLAM mode
+    use_sim_time: true
+    solver_plugin: solver_plugins::CeresSolver
+    ceres_linear_solver: SPARSE_NORMAL_CHOLESKY
+    ceres_preconditioner: SCHUR_JACOBI
+    ceres_trust_strategy: LEVENBERG_MARQUARDT
+    ceres_dogleg_type: TRADITIONAL_DOGLEG
+    ceres_loss_function: None
+
+    # General Parameters
+    mode: mapping
+    debug_logging: false
+    throttle_scans: 1
+    transformation_timeout: 0.0
+    tf_buffer_duration: 30.0
+    stack_size_to_use: 40000000
+    enable_interactive_mode: true
+
+    # Laser Parameters
+    use_scan_matching: true
+    use_scan_bamatching: true
+    minimum_travel_distance: 0.5
+    minimum_travel_heading: 0.5
+    scan_buffer_size: 10
+    scan_buffer_discount: 0.3
+    scan_matcher_penalty_scale: 100.0
+    scan_matcher_distance_penalty_weight: 100.0
+    scan_matcher_angle_penalty_weight: 100.0
+    scan_matcher_occupied_space_weight: 100.0
+    scan_matcher_translation_delta_cost_weight: 10.0
+    scan_matcher_rotation_delta_cost_weight: 10.0
+
+    # Correlation Search Space Resolution
+    search_size: 30
+    search_padding: 1.6
+    correlation_search_space_dimension: 0.5
+    correlation_search_space_smear: 0.1
+    correlation_search_space_step_size: 0.3
+    correlation_search_space_smear_resolution: 0.02
+
+    # Loop Closure Parameters
+    loop_search_maximum_distance: 3.0
+    do_loop_closing: true
+    loop_match_minimum_chain_size: 5
+    loop_match_maximum_variance_queue_size: 5
+    loop_match_minimum_response_fine: 0.1
+    loop_match_minimum_response_coarse: 0.3
+    loop_match_ratio: 0.3
+    loop_match_debounce: 0.4
+    loop_match_meter_improvement: 1.0
+    loop_match_check_heading_improvement: true
+    loop_match_max_angle_variance: 0.9
+    scan_matcher_size: 5
+
+    # Processor Parameters
+    processor_type: 1
+    matcher_type: 1
+
+    # Minimum Pose Change
+    minimum_pose_change: 0.25
+
+    # Occupancy Grid Parameters
+    occupied_space_weight: 100.0
+    occupied_space_penalty_multiplier: 1.0
+    free_space_weight: 100.0
+    free_space_penalty_multiplier: 1.0
+
+    # Unknown Space Steps
+    unknown_space_steps: 2
+
+    # Resolution
+    resolution: 0.05
+
+    # Optimization Parameters
+    num_threads: 4
+    max_iterations: 200
+    variance_penalty_weight: 100.0
+    print_progress_to_stdout: true
+
+    map_update_interval: 5.0
+    map_publish_period: 5.0

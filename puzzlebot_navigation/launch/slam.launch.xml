@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!-- GENERADO CON CLAUDE REMPLAZAR CON ARCHIVOS PROPIOS -->
+<launch>
+  <arg name="use_sim_time" default="true" description="Use simulation time"/>
+  <arg name="slam_params_file" default="$(find-pkg-share puzzlebot_navigation)/config/slam_toolbox.yaml"/>
+  <arg name="rviz_file" default="$(find-pkg-share puzzlebot_navigation)/rviz/slam.rviz"/>
+
+  <!-- SLAM Toolbox Server -->
+  <node pkg="slam_toolbox" exec="async_slam_toolbox_node" name="slam_toolbox">
+    <remap from="scan" to="/scan"/>
+    <remap from="tf" to="tf"/>
+    <remap from="tf_static" to="tf_static"/>
+    <param name="use_sim_time" value="$(var use_sim_time)"/>
+    <param from="$(var slam_params_file)"/>
+  </node>
+
+  <!-- SLAM Toolbox Lifetime Manager -->
+  <node pkg="slam_toolbox" exec="lifetimeManager" name="lifecycle_manager_slam">
+    <param name="autostart" value="true"/>
+    <param name="node_names" value="slam_toolbox"/>
+  </node>
+
+  <!-- RViz Visualization for SLAM -->
+  <node pkg="rviz2" exec="rviz2" name="rviz2_slam" args="-d $(var rviz_file)">
+    <param name="use_sim_time" value="$(var use_sim_time)"/>
+  </node>
+
+</launch>
