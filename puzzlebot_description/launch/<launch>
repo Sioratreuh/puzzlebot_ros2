@@ -1,3 +1,6 @@
+# Jose Angel Huerta Rios A01710607 - EQUIPO PAPULAND
+
+
 <launch>
     <arg name="rviz" default="false" />
     <arg name="gazebo" default="false" />

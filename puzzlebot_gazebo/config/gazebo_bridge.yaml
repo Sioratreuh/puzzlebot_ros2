@@ -1,3 +1,5 @@
+# Jose Angel Huerta Rios A01710607 - EQUIPO PAPULAND
+
 - ros_topic_name: "/clock"
   gz_topic_name: "/clock"
   ros_type_name: "rosgraph_msgs/mgs/Clock"

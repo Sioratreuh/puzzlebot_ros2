@@ -1,3 +1,5 @@
+# Jose Angel Huerta Rios A01710607 - EQUIPO PAPULAND
+
 <launch>
     <let name="world" value="$(find-pkg-share puzzlebot_gazebo)/worlds/maze.world)" />|
     <let name="puzzlebot_description_path" 
@@ -9,5 +11,33 @@
     <arg name="use_sim_time" default="true" />|
     <arg name="headless" default="false" />|
 
+# Launch gazebo with GUI if headless is false, otherwise launch without GUI
+    <include if="$(not $(var headless))" 
+            file_="$(find-pkg-share ros_gz_sim)/launch/gz_sim.launch.py"/>
+        <arg name="gz_args" value="$(var world) -r" />
+    </include>
 
+    <include if="$(var headless)" 
+            file_="$(find-pkg-share ros_gz_sim)/launch/gz_sim.launch.py"/>
+        <arg name="gz_args" value="$(var world) -r -s" />
+    </include>
+
+# Launch the puzzlebot description
+    <include file="$(var puzzlebot_description_path)" />
+        <arg name="use_sim_time" value="$(arg use_sim_time)" />
+    </include>
+
+# Spawn the puzzlebot in gazebo
+    <node pkg="ros_gz_sim" 
+        exec="create" 
+        output="screen" 
+        args="-name puzzlebot -topic robot_description -x $(var x_pose) -y $(var y_pose) -z 0.1 -Y 3.14159" 
+        name="spawn_puzzlebot"/>
+
+# Launch the gazebo bridge to connect ROS 2 and Gazebo topics
+    <node pkg="ros_gz_bridge" 
+        exec="parameter_bridge" 
+        output="screen" >
+        <param name="config_file" value="$(var gazebo_bridge_config_path)" />
+    </node>   
 </launch>
