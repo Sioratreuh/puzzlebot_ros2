@@ -3,8 +3,8 @@
 Este repositorio contiene la estructura inicial y la integración formal del robot diferencial **Puzzlebot** al stack de navegación de ROS 2. El proyecto abarca la descripción del robot, la simulación del entorno y la configuración de los modos de mapeo (SLAM) y navegación (Nav2).
 
 # Integrantes del Equipo
-* Ezzat Alzahouri Campos A017 - DrearyLand
-* Jose Angel Huerta Ríos A017 - Sioratreuh
+* Ezzat Alzahouri Campos A0176 - DrearyLand
+* Jose Angel Huerta Ríos A0176 - Sioratreuh
 * Juan Pablo A. Curiel Nava A01748818 - JPCN33
 
 # Estructura del Proyecto
