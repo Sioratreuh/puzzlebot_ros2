@@ -16,7 +16,7 @@ El proyecto está segmentado en tres paquetes principales para mantener una arqu
 3. **`puzzlebot_navigation`**: Contiene el stack de navegación. Aquí se alojan las configuraciones YAML para `slam_toolbox` y `nav2`, los mapas generados (`my_map.yaml` / `.pgm`), perfiles de RViz específicos para mapeo y navegación, y los launch files principales.
 
 ## Prerrequisitos y Entorno
-* **SO:** Ubuntu 22.04 (Recomendado)
+* **SO:** Ubuntu 22.04
 * **ROS 2:** Humble
 * **Simulador:** Gazebo Classic
 * **Rviz2**
