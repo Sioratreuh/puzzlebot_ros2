@@ -1,9 +1,0 @@
-/root/Semestre8/Modulo3/puzzlebot_ros2/build/puzzlebot_gazebo/CMakeFiles/uninstall.dir
-/root/Semestre8/Modulo3/puzzlebot_ros2/build/puzzlebot_gazebo/CMakeFiles/puzzlebot_gazebo_uninstall.dir
-/root/Semestre8/Modulo3/puzzlebot_ros2/build/puzzlebot_gazebo/CMakeFiles/test.dir
-/root/Semestre8/Modulo3/puzzlebot_ros2/build/puzzlebot_gazebo/CMakeFiles/edit_cache.dir
-/root/Semestre8/Modulo3/puzzlebot_ros2/build/puzzlebot_gazebo/CMakeFiles/rebuild_cache.dir
-/root/Semestre8/Modulo3/puzzlebot_ros2/build/puzzlebot_gazebo/CMakeFiles/list_install_components.dir
-/root/Semestre8/Modulo3/puzzlebot_ros2/build/puzzlebot_gazebo/CMakeFiles/install.dir
-/root/Semestre8/Modulo3/puzzlebot_ros2/build/puzzlebot_gazebo/CMakeFiles/install/local.dir
-/root/Semestre8/Modulo3/puzzlebot_ros2/build/puzzlebot_gazebo/CMakeFiles/install/strip.dir
