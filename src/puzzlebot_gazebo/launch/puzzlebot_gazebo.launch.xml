@@ -8,6 +8,7 @@
     <arg name="y_pose" default="0.0"/>
     <arg name="use_sim_time" default="true"/>
     <arg name="headless" default="false"/>
+    <set_env name="GZ_SIM_RESOURCE_PATH" value="$(env GZ_SIM_RESOURCE_PATH ''):$(find-pkg-share puzzlebot_description)/../"/>
 
     <!-- Launch Gazebo -->
     <include if="$(not $(var headless))" file="$(find-pkg-share ros_gz_sim)/launch/gz_sim.launch.py">
