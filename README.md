@@ -19,3 +19,6 @@ El proyecto está segmentado en tres paquetes principales para mantener una arqu
 * **SO:** Ubuntu 22.04 (Recomendado)
 * **ROS 2:** Humble
 * **Simulador:** Gazebo Classic
+* **Rviz2**
+* **Slam Toolbox**
+* **Nav2**
