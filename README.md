@@ -19,12 +19,3 @@ El proyecto está segmentado en tres paquetes principales para mantener una arqu
 * **SO:** Ubuntu 22.04 (Recomendado)
 * **ROS 2:** Humble
 * **Simulador:** Gazebo Classic
-* **Paquetes extra:** `slam_toolbox`, `nav2_bringup`, `ros2_control`
-
-## Instrucciones de Uso
-
-### 1. Compilación
-Asegúrate de estar en la raíz de tu workspace (ej. `puzzlebot_ws`) y compila los paquetes:
-```bash
-colcon build
-source install/setup.bash
