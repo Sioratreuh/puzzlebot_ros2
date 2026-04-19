@@ -19,6 +19,8 @@
     </node>
 
     <node pkg="joint_state_publisher_gui" exec="joint_state_publisher_gui" output="screen" if="$(var joint_gui)"/>
+    
+    <node pkg="joint_state_publisher" exec="joint_state_publisher" output="screen" unless="$(var joint_gui)"/>
 
     <include file="$(var gazebo_path)" if="$(var gazebo)">
         <arg name="gz_args" value="empty.sdf -r" />

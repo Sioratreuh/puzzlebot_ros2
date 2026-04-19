@@ -1,12 +1,8 @@
 <?xml version="1.0"?>
 <robot name="Puzzlebot_Jetson_Lidar_Ed">
 
-  <material name="green">
-    <color rgba="0.0 1.0 0.0 1.0"/>
-  </material>
-  <material name="black">
-    <color rgba="0.0 0.0 0.0 1.0"/>
-  </material>
+  <material name="green"><color rgba="0.0 1.0 0.0 1.0"/></material>
+  <material name="black"><color rgba="0.0 0.0 0.0 1.0"/></material>
 
   <link name="base_footprint"/>
 
@@ -138,11 +134,8 @@
     <origin xyz="0 0 0.1"/>
   </joint>
 
-  <!-- ==================== GAZEBO PLUGINS ==================== -->
-
-  <!-- LiDAR Sensor Plugin -->
   <gazebo reference="laser_link">
-    <sensor name="laser_sensor" type="ray">
+    <sensor name="laser_sensor" type="gpu_ray">
       <pose>0 0 0 0 0 0</pose>
       <ray>
         <scan>
@@ -158,106 +151,55 @@
           <max>12.0</max>
           <resolution>0.01</resolution>
         </range>
-        <noise>
-          <type>gaussian</type>
-          <mean>0.0</mean>
-          <stddev>0.01</stddev>
-        </noise>
       </ray>
-      <plugin filename="ignition-gazebo-ray-sensor-system"
-              name="ignition::gazebo::systems::RaySensor">
+      <plugin filename="gz-sim-sensors-system" name="gz::sim::systems::Sensors">
+        <render_engine>ogre2</render_engine>
       </plugin>
-      <alwaysOn>1</alwaysOn>
+      <always_on>1</always_on>
       <visualize>true</visualize>
-      <publish_raw_scan>true</publish_raw_scan>
       <topic>scan</topic>
       <frame_id>laser_link</frame_id>
     </sensor>
   </gazebo>
 
-  <!-- Friction configuration for left wheel -->
-  <gazebo reference="wheel_l_link">
-    <material>Gazebo/Green</material>
-    <surface>
-      <contact>
-        <collide_bitmask>0xffff</collide_bitmask>
-      </contact>
-      <friction>
-        <ode>
-          <mu>0.7</mu>
-          <mu2>0.7</mu2>
-          <slip1>0.0</slip1>
-          <slip2>0.0</slip2>
-          <fdir1>0 1 0</fdir1>
-        </ode>
-      </friction>
-    </surface>
-  </gazebo>
-
-  <!-- Friction configuration for right wheel -->
-  <gazebo reference="wheel_r_link">
-    <material>Gazebo/Green</material>
-    <surface>
-      <contact>
-        <collide_bitmask>0xffff</collide_bitmask>
-      </contact>
-      <friction>
-        <ode>
-          <mu>0.7</mu>
-          <mu2>0.7</mu2>
-          <slip1>0.0</slip1>
-          <slip2>0.0</slip2>
-          <fdir1>0 1 0</fdir1>
-        </ode>
-      </friction>
-    </surface>
-  </gazebo>
-
-  <!-- Friction configuration for caster wheel -->
-  <gazebo reference="caster_link">
-    <material>Gazebo/Black</material>
-    <surface>
-      <contact>
-        <collide_bitmask>0xffff</collide_bitmask>
-      </contact>
-      <friction>
-        <ode>
-          <mu>0.3</mu>
-          <mu2>0.3</mu2>
-          <slip1>1.0</slip1>
-          <slip2>1.0</slip2>
-        </ode>
-      </friction>
-    </surface>
-  </gazebo>
-
-  <!-- Differential Drive Plugin -->
   <gazebo>
-    <plugin filename="ignition-gazebo-differential-drive-system"
-            name="ignition::gazebo::systems::DifferentialDrive">
+    <plugin filename="gz-sim-diff-drive-system" name="gz::sim::systems::DiffDrive">
       <left_joint>wheel_l_joint</left_joint>
       <right_joint>wheel_r_joint</right_joint>
       <wheel_separation>0.19</wheel_separation>
       <wheel_radius>0.033</wheel_radius>
       <odom_publish_frequency>50</odom_publish_frequency>
-      <max_linear_velocity>0.5</max_linear_velocity>
-      <max_angular_velocity>2.0</max_angular_velocity>
-      <min_linear_velocity>-0.5</min_linear_velocity>
-      <min_angular_velocity>-2.0</min_angular_velocity>
-      <odom_topic>/odom</odom_topic>
-      <tf_topic>/tf</tf_topic>
-      <cmd_vel_topic>/cmd_vel</cmd_vel_topic>
+      <topic>cmd_vel</topic>
+      <odom_topic>odom</odom_topic>
+      <tf_topic>tf</tf_topic>
+      <frame_id>odom</frame_id>
+      <child_frame_id>base_footprint</child_frame_id>
+    </plugin>
+
+    <plugin filename="gz-sim-joint-state-publisher-system" name="gz::sim::systems::JointStatePublisher">
+      <topic>joint_states</topic>
+      <joint_name>wheel_l_joint</joint_name>
+      <joint_name>wheel_r_joint</joint_name>
     </plugin>
   </gazebo>
 
-  <!-- Base link properties -->
-  <gazebo reference="base_link">
+  <gazebo reference="wheel_l_link">
+    <mu1>0.7</mu1>
+    <mu2>0.7</mu2>
     <material>Gazebo/Green</material>
   </gazebo>
-
-  <!-- Caster link properties -->
+  <gazebo reference="wheel_r_link">
+    <mu1>0.7</mu1>
+    <mu2>0.7</mu2>
+    <material>Gazebo/Green</material>
+  </gazebo>
   <gazebo reference="caster_link">
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
     <material>Gazebo/Black</material>
+  </gazebo>
+  <gazebo reference="base_link">
+    <material>Gazebo/Green</material>
   </gazebo>
 
 </robot>
