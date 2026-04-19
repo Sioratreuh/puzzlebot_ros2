@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(puzzlebot_navigation2)
+project(puzzlebot_navigation)
 
 find_package(ament_cmake REQUIRED)
 
