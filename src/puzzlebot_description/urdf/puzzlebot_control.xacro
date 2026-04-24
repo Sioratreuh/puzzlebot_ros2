@@ -1,0 +1,37 @@
+<?xml version ="1.0?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <xacro:macro name="puzzlebot_control" params="prefix">
+        <gazebo>
+            <plugin filename="gz-sim-sensors-system" name="gz::sim::systems::Sensors"/>
+                <render_engine>ogre2</render_engine>
+            </plugin>
+
+            <plugin filename="gz-sim-diff-drive-systems" name="gz::sim::systems::DiffDrive"/>
+                <left_joint>${prefix}wheel_left_joint</left_joint>          # the joints that will be controlled by the plugin
+                <right_joint>${prefix}wheel_right_joint</right_joint>       # the joints that will be controlled by the plugin
+                <wheel_separation>0.17</wheel_separation>                   # the distance between the two wheels
+                <wheel_radius>0.045</wheel_radius>                          # the radius of the wheels
+                <topic>${prefix}cmd_vel</topic>                             # the topic that will be subscribed to receive velocity commands
+                <tf_topic>${prefix}diff_drive/tf</tf_topic>                 # the topic that will be published in the tf message
+                <odom_topic>${prefix}odom</odom_topic>                      # the topic that will be published in the odometry message
+                <frame_id>${prefix}odom</frame_id>                          # the frame that will be published in the odometry message
+                <child_frame_id>${prefix}base_footprint</child_frame_id>    # the frame that will be published in the odometry message
+                <odom_publish_frequency>50</odom_publish_frequency>         # publish odometry at 50 Hz
+                <max_angular_acceleration>1.2</max_angular_acceleration>    # the maximum angular acceleration of the robot
+                <max_angular_velocity>13.0</max_angular_velocity>           # the maximum angular velocity of the robot
+            </plugin>
+
+            <plugin filename="gz-sim-joint-state-publisher-system" name="gz::sim::systems::JointStatePublisher"/>
+                <topic>${prefix}joint_states</topic>                        # the topic that will be published in the joint states message
+                <update_rate>50</update_rate>                               # publish joint states at 50 Hz
+                <joint_name>${prefix}wheel_left_joint</joint_name>          # the joint that will be published in the joint states message
+                <joint_name>${prefix}wheel_right_joint</joint_name>         # the joint that will be published in the joint states message
+            
+            </plugin>
+
+  
+              
+        </gazebo>
+    </xacro:macro>
+</robot>
