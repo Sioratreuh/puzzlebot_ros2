@@ -10,6 +10,9 @@ Panels:
 				- /TF1
 				- /LaserScan1
 				- /Map1
+				- /Amcl Particle Swarm1
+				- /Global Planner1
+				- /Controller1
 			Splitter Ratio: 0.5
 		Tree Height: 0
 	- Class: rviz_common/Selection
@@ -32,6 +35,7 @@ Visualization Manager:
 			Color: 160; 160; 160
 			Alpha: 0.5
 			Value: true
+
 		- Class: rviz_default_plugins/RobotModel
 			Name: RobotModel
 			Enabled: true
@@ -40,6 +44,7 @@ Visualization Manager:
 				Value: /robot_description
 			Visual Enabled: true
 			Collision Enabled: false
+
 		- Class: rviz_default_plugins/TF
 			Name: TF
 			Enabled: true
@@ -48,6 +53,7 @@ Visualization Manager:
 			Show Axes: true
 			Show Names: true
 			Marker Scale: 1
+
 		- Class: rviz_default_plugins/LaserScan
 			Name: LaserScan
 			Enabled: true
@@ -60,15 +66,82 @@ Visualization Manager:
 			Decay Time: 0
 			Queue Size: 10
 			Use Fixed Frame: true
+
 		- Class: rviz_default_plugins/Map
 			Name: Map
 			Enabled: true
 			Topic:
 				Value: /map
-			Alpha: 0.8
+			Alpha: 0.7
 			Color Scheme: map
 			Draw Behind: true
 			Use Timestamp: false
+
+		- Class: rviz_default_plugins/PoseArray
+			Name: Amcl Particle Swarm
+			Enabled: true
+			Topic:
+				Value: /particle_cloud
+			Color: 255; 25; 0
+			Shape: Arrow (Flat)
+			Shaft Length: 0.05
+			Shaft Radius: 0.003
+			Head Length: 0.02
+			Head Radius: 0.006
+			Alpha: 0.8
+
+		- Class: rviz_common/Group
+			Name: Global Planner
+			Enabled: true
+			Displays:
+				- Class: rviz_default_plugins/Map
+					Name: Global Costmap
+					Enabled: true
+					Topic:
+						Value: /global_costmap/costmap
+					Alpha: 0.5
+					Color Scheme: costmap
+					Draw Behind: false
+					Use Timestamp: false
+				- Class: rviz_default_plugins/Path
+					Name: Path
+					Enabled: true
+					Topic:
+						Value: /plan
+					Color: 255; 0; 255
+					Line Style: Lines
+					Line Width: 0.04
+					Alpha: 1
+				- Class: rviz_default_plugins/Polygon
+					Name: Polygon
+					Enabled: true
+					Topic:
+						Value: /global_costmap/published_footprint
+					Color: 0; 170; 255
+					Alpha: 1
+
+		- Class: rviz_common/Group
+			Name: Controller
+			Enabled: true
+			Displays:
+				- Class: rviz_default_plugins/Map
+					Name: Local Costmap
+					Enabled: true
+					Topic:
+						Value: /local_costmap/costmap
+					Alpha: 0.6
+					Color Scheme: costmap
+					Draw Behind: false
+					Use Timestamp: false
+				- Class: rviz_default_plugins/Path
+					Name: Local Plan
+					Enabled: true
+					Topic:
+						Value: /local_plan
+					Color: 255; 255; 0
+					Line Style: Lines
+					Line Width: 0.06
+					Alpha: 1
 
 	Enabled: true
 	Global Options:
@@ -89,9 +162,9 @@ Visualization Manager:
 			Class: rviz_default_plugins/Orbit
 			Name: Current View
 			Target Frame: base_link
-			Distance: 8
-			Pitch: 0.6
-			Yaw: 0.8
+			Distance: 10
+			Pitch: 0.7
+			Yaw: 0.9
 			Focal Point:
 				X: 0
 				Y: 0
