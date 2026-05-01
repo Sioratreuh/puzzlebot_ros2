@@ -1,5 +1,11 @@
 <?xml version="1.0"?>
-<robot name="Puzzlebot_Jetson_Lidar_Ed">
+<robot name="Puzzlebot_Jetson_Lidar_Ed" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:include filename="$(find puzzlebot_description)/urdf/sensor.xacro"/>
+  <xacro:include filename="$(find puzzlebot_description)/urdf/macros.xacro"/>
+  <xacro:include filename="$(find puzzlebot_description)/urdf/puzzlebot_control.xacro"/>
+  <xacro:include filename="$(find puzzlebot_description)/urdf/sensor_properties.xacro"/>
+
+  <xacro:arg name="prefix" default=""/>
 
   <material name="green"><color rgba="0.0 1.0 0.0 1.0"/></material>
   <material name="black"><color rgba="0.0 0.0 0.0 1.0"/></material>
@@ -14,14 +20,14 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://puzzlebot_description/meshes/Puzzlebot_Jetson_Lidar_Edition_Base.stl" scale="1 1 1"/>
+        <mesh filename="file://$(find puzzlebot_description)/meshes/Puzzlebot_Jetson_Lidar_Edition_Base.stl" scale="1 1 1"/>
       </geometry>
       <material name="green"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://puzzlebot_description/meshes/Puzzlebot_Jetson_Lidar_Edition_Base.stl" scale="1 1 1"/>
+        <mesh filename="file://$(find puzzlebot_description)/meshes/Puzzlebot_Jetson_Lidar_Edition_Base.stl" scale="1 1 1"/>
       </geometry>
     </collision>
   </link>
@@ -34,14 +40,14 @@
     <visual>
       <origin xyz="0 0 0" rpy="-1.5708 0 0"/>
       <geometry>
-        <mesh filename="package://puzzlebot_description/meshes/Puzzlebot_Wheel.stl" scale="1 1 1"/>
+        <mesh filename="file://$(find puzzlebot_description)/meshes/Puzzlebot_Wheel.stl" scale="1 1 1"/>
       </geometry>
       <material name="green"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="-1.5708 0 0"/>
       <geometry>
-        <mesh filename="package://puzzlebot_description/meshes/Puzzlebot_Wheel.stl" scale="1 1 1"/>
+        <mesh filename="file://$(find puzzlebot_description)/meshes/Puzzlebot_Wheel.stl" scale="1 1 1"/>
       </geometry>
     </collision>
   </link>
@@ -54,14 +60,14 @@
     <visual>
       <origin xyz="0 0 0" rpy="1.5708 0 0"/>
       <geometry>
-        <mesh filename="package://puzzlebot_description/meshes/Puzzlebot_Wheel.stl" scale="1 1 1"/>
+        <mesh filename="file://$(find puzzlebot_description)/meshes/Puzzlebot_Wheel.stl" scale="1 1 1"/>
       </geometry>
       <material name="green"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="1.5708 0 0"/>
       <geometry>
-        <mesh filename="package://puzzlebot_description/meshes/Puzzlebot_Wheel.stl" scale="1 1 1"/>
+        <mesh filename="file://$(find puzzlebot_description)/meshes/Puzzlebot_Wheel.stl" scale="1 1 1"/>
       </geometry>
     </collision>
   </link>
@@ -73,13 +79,13 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://puzzlebot_description/meshes/Puzzlebot_Caster_Wheel.stl" scale="1 1 1"/>
+        <mesh filename="file://$(find puzzlebot_description)/meshes/Puzzlebot_Caster_Wheel.stl" scale="1 1 1"/>
       </geometry>
       <material name="green"/>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://puzzlebot_description/meshes/Puzzlebot_Caster_Wheel.stl" scale="1 1 1"/>
+        <mesh filename="file://$(find puzzlebot_description)/meshes/Puzzlebot_Caster_Wheel.stl" scale="1 1 1"/>
       </geometry>
     </collision>
   </link>
@@ -201,5 +207,9 @@
   <gazebo reference="base_link">
     <material>Gazebo/Green</material>
   </gazebo>
+
+  <xacro:include filename="$(find puzzlebot_description)/urdf/sensor.xacro"/>
+  <xacro:puzzlebot_control prefix="$(arg prefix)"/>
+  <xacro:rpi_lidar_sensor prefix="$(arg prefix)"/>
 
 </robot>

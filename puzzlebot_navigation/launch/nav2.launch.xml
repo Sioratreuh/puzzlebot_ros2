@@ -1,7 +1,7 @@
 <launch>
     <arg name="use_sim_time" default="true" />
     <arg name="headless" default="false" />
-    <arg name="map_path" default="$(find-pkg-share puzzlebot_navigation)/maps/map_maze.yaml"/>
+    <arg name="map_path" default="$(find-pkg-share puzzlebot_navigation)/maps/my_map.yaml"/>
     <arg name="nav2_params_file" default="$(find-pkg-share puzzlebot_navigation)/config/nav2_params.yaml"/>
 
     <!-- Include the Gazebo launch file to start the simulation environment -->
