@@ -54,10 +54,9 @@
             </plane>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
+            <ambient>0.5 0.5 0.5 1</ambient>
+            <diffuse>0.5 0.5 0.5 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
           </material>
         </visual>
         <self_collide>0</self_collide>
@@ -89,13 +88,56 @@
       <elevation>0</elevation>
       <heading_deg>0</heading_deg>
     </spherical_coordinates>
-    <model name='Mapa_reto'>
-      <pose>-0.025387 0.000589 0 0 -0 0</pose>
+    <model name='maze'>
+      <pose>-0.02811 -0.007464 0 0 -0 0</pose>
+      <link name='Wall_1'>
+        <collision name='Wall_1_Collision'>
+          <geometry>
+            <box>
+              <size>3.5 0.15 2.5</size>
+            </box>
+          </geometry>
+          <pose>0 0 1.25 0 -0 0</pose>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='Wall_1_Visual'>
+          <pose>0 0 1.25 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>3.5 0.15 2.5</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.55 0.35 0.15 1</ambient>
+            <diffuse>0.55 0.35 0.15 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+          </material>
+          <meta>
+            <layer>0</layer>
+          </meta>
+        </visual>
+        <pose>-0 -1.68548 0 0 -0 0</pose>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
       <link name='Wall_10'>
         <collision name='Wall_10_Collision'>
           <geometry>
             <box>
-              <size>0.86007 0.15 2.5</size>
+              <size>1.5 0.15 2.5</size>
             </box>
           </geometry>
           <pose>0 0 1.25 0 -0 0</pose>
@@ -117,21 +159,19 @@
           <pose>0 0 1.25 0 -0 0</pose>
           <geometry>
             <box>
-              <size>0.86007 0.15 2.5</size>
+              <size>1.5 0.15 2.5</size>
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
-            <ambient>1 1 1 1</ambient>
+            <ambient>0.7 0.5 0.3 1</ambient>
+            <diffuse>0.7 0.5 0.3 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
           </material>
           <meta>
             <layer>0</layer>
           </meta>
         </visual>
-        <pose>-1.08961 0.764411 0 0 -0 1.55671</pose>
+        <pose>1.05454 -0.326477 0 0 -0 1.5708</pose>
         <self_collide>0</self_collide>
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
@@ -140,7 +180,7 @@
         <collision name='Wall_11_Collision'>
           <geometry>
             <box>
-              <size>1.64003 0.15 2.5</size>
+              <size>0.75 0.15 2.5</size>
             </box>
           </geometry>
           <pose>0 0 1.25 0 -0 0</pose>
@@ -162,30 +202,28 @@
           <pose>0 0 1.25 0 -0 0</pose>
           <geometry>
             <box>
-              <size>1.64003 0.15 2.5</size>
+              <size>0.75 0.15 2.5</size>
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
-            <ambient>1 1 1 1</ambient>
+            <ambient>0.7 0.5 0.3 1</ambient>
+            <diffuse>0.7 0.5 0.3 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
           </material>
           <meta>
             <layer>0</layer>
           </meta>
         </visual>
-        <pose>-0.339613 1.12441 0 0 -0 0.006711</pose>
+        <pose>1.35454 0.348522 0 0 -0 0</pose>
         <self_collide>0</self_collide>
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
       </link>
-      <link name='Wall_14'>
-        <collision name='Wall_14_Collision'>
+      <link name='Wall_13'>
+        <collision name='Wall_13_Collision'>
           <geometry>
             <box>
-              <size>0.810303 0.15 2.5</size>
+              <size>0.75 0.15 2.5</size>
             </box>
           </geometry>
           <pose>0 0 1.25 0 -0 0</pose>
@@ -203,70 +241,23 @@
             </friction>
           </surface>
         </collision>
-        <visual name='Wall_14_Visual'>
+        <visual name='Wall_13_Visual'>
           <pose>0 0 1.25 0 -0 0</pose>
           <geometry>
             <box>
-              <size>0.810303 0.15 2.5</size>
+              <size>0.75 0.15 2.5</size>
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
-            <ambient>1 1 1 1</ambient>
+            <ambient>0.7 0.5 0.3 1</ambient>
+            <diffuse>0.7 0.5 0.3 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
           </material>
           <meta>
             <layer>0</layer>
           </meta>
         </visual>
-        <pose>0.385387 -1.45059 0 0 -0 1.5708</pose>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-      <link name='Wall_15'>
-        <collision name='Wall_15_Collision'>
-          <geometry>
-            <box>
-              <size>0.870069 0.15 2.5</size>
-            </box>
-          </geometry>
-          <pose>0 0 1.25 0 -0 0</pose>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='Wall_15_Visual'>
-          <pose>0 0 1.25 0 -0 0</pose>
-          <geometry>
-            <box>
-              <size>0.870069 0.15 2.5</size>
-            </box>
-          </geometry>
-          <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
-            <ambient>1 1 1 1</ambient>
-          </material>
-          <meta>
-            <layer>0</layer>
-          </meta>
-        </visual>
-        <pose>0.025387 -1.11559 0 0 -0 3.12771</pose>
+        <pose>0.650193 -0.314521 0 0 -0 0</pose>
         <self_collide>0</self_collide>
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
@@ -275,7 +266,7 @@
         <collision name='Wall_16_Collision'>
           <geometry>
             <box>
-              <size>1.64013 0.15 2.5</size>
+              <size>0.816384 0.15 2.5</size>
             </box>
           </geometry>
           <pose>0 0 1.25 0 -0 0</pose>
@@ -297,21 +288,62 @@
           <pose>0 0 1.25 0 -0 0</pose>
           <geometry>
             <box>
-              <size>1.64013 0.15 2.5</size>
+              <size>0.816384 0.15 2.5</size>
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
-            <ambient>1 1 1 1</ambient>
+            <ambient>0.7 0.5 0.3 1</ambient>
+            <diffuse>0.7 0.5 0.3 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
           </material>
           <meta>
             <layer>0</layer>
           </meta>
         </visual>
-        <pose>-0.329613 -0.365589 0 0 -0 1.56408</pose>
+        <pose>0.354421 0.683647 0 0 -0 1.5708</pose>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <link name='Wall_17'>
+        <collision name='Wall_17_Collision'>
+          <geometry>
+            <box>
+              <size>1.5 0.15 2.5</size>
+            </box>
+          </geometry>
+          <pose>0 0 1.25 0 -0 0</pose>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='Wall_17_Visual'>
+          <pose>0 0 1.25 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>1.5 0.15 2.5</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.7 0.5 0.3 1</ambient>
+            <diffuse>0.7 0.5 0.3 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+          </material>
+          <meta>
+            <layer>0</layer>
+          </meta>
+        </visual>
+        <pose>-0.320579 1.01676 0 0 -0 3.14159</pose>
         <self_collide>0</self_collide>
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
@@ -320,7 +352,7 @@
         <collision name='Wall_18_Collision'>
           <geometry>
             <box>
-              <size>0.880068 0.15 2.5</size>
+              <size>0.81633 0.15 2.5</size>
             </box>
           </geometry>
           <pose>0 0 1.25 0 -0 0</pose>
@@ -342,21 +374,62 @@
           <pose>0 0 1.25 0 -0 0</pose>
           <geometry>
             <box>
-              <size>0.880068 0.15 2.5</size>
+              <size>0.81633 0.15 2.5</size>
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
-            <ambient>1 1 1 1</ambient>
+            <ambient>0.7 0.5 0.3 1</ambient>
+            <diffuse>0.7 0.5 0.3 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
           </material>
           <meta>
             <layer>0</layer>
           </meta>
         </visual>
-        <pose>-0.699613 -0.330589 0 0 -0 3.14159</pose>
+        <pose>-0.99674 0.683647 0 0 -0 -1.57428</pose>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <link name='Wall_19'>
+        <collision name='Wall_19_Collision'>
+          <geometry>
+            <box>
+              <size>0.75 0.15 2.5</size>
+            </box>
+          </geometry>
+          <pose>0 0 1.25 0 -0 0</pose>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='Wall_19_Visual'>
+          <pose>0 0 1.25 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.75 0.15 2.5</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.7 0.5 0.3 1</ambient>
+            <diffuse>0.7 0.5 0.3 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+          </material>
+          <meta>
+            <layer>0</layer>
+          </meta>
+        </visual>
+        <pose>-1.2979 0.350539 0 0 -0 3.14159</pose>
         <self_collide>0</self_collide>
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
@@ -365,7 +438,7 @@
         <collision name='Wall_2_Collision'>
           <geometry>
             <box>
-              <size>3.81034 0.15 2.5</size>
+              <size>3.5 0.15 2.5</size>
             </box>
           </geometry>
           <pose>0 0 1.25 0 -0 0</pose>
@@ -387,30 +460,28 @@
           <pose>0 0 1.25 0 -0 0</pose>
           <geometry>
             <box>
-              <size>3.81034 0.15 2.5</size>
+              <size>3.5 0.15 2.5</size>
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
-            <ambient>1 1 1 1</ambient>
+            <ambient>0.55 0.35 0.15 1</ambient>
+            <diffuse>0.55 0.35 0.15 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
           </material>
           <meta>
             <layer>0</layer>
           </meta>
         </visual>
-        <pose>-1.83461 -0.010589 0 0 -0 1.5708</pose>
+        <pose>1.675 -0.010479 0 0 -0 1.5708</pose>
         <self_collide>0</self_collide>
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
       </link>
-      <link name='Wall_20'>
-        <collision name='Wall_20_Collision'>
+      <link name='Wall_21'>
+        <collision name='Wall_21_Collision'>
           <geometry>
             <box>
-              <size>0.9006 0.15 2.5</size>
+              <size>1.5 0.15 2.5</size>
             </box>
           </geometry>
           <pose>0 0 1.25 0 -0 0</pose>
@@ -428,25 +499,23 @@
             </friction>
           </surface>
         </collision>
-        <visual name='Wall_20_Visual'>
+        <visual name='Wall_21_Visual'>
           <pose>0 0 1.25 0 -0 0</pose>
           <geometry>
             <box>
-              <size>0.9006 0.15 2.5</size>
+              <size>1.5 0.15 2.5</size>
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
-            <ambient>1 1 1 1</ambient>
+            <ambient>0.7 0.5 0.3 1</ambient>
+            <diffuse>0.7 0.5 0.3 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
           </material>
           <meta>
             <layer>0</layer>
           </meta>
         </visual>
-        <pose>0.405387 0.754411 0 0 -0 -1.5708</pose>
+        <pose>-0.316768 -0.314518 0 0 -0 -1.5708</pose>
         <self_collide>0</self_collide>
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
@@ -455,7 +524,7 @@
         <collision name='Wall_22_Collision'>
           <geometry>
             <box>
-              <size>0.850643 0.15 2.5</size>
+              <size>0.826164 0.15 2.5</size>
             </box>
           </geometry>
           <pose>0 0 1.25 0 -0 0</pose>
@@ -477,30 +546,28 @@
           <pose>0 0 1.25 0 -0 0</pose>
           <geometry>
             <box>
-              <size>0.850643 0.15 2.5</size>
+              <size>0.826164 0.15 2.5</size>
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
-            <ambient>1 1 1 1</ambient>
+            <ambient>0.7 0.5 0.3 1</ambient>
+            <diffuse>0.7 0.5 0.3 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
           </material>
           <meta>
             <layer>0</layer>
           </meta>
         </visual>
-        <pose>1.13039 1.48941 0 0 -0 -1.55651</pose>
+        <pose>0.021312 -0.990678 0 0 -0 -0.003432</pose>
         <self_collide>0</self_collide>
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
       </link>
-      <link name='Wall_24'>
-        <collision name='Wall_24_Collision'>
+      <link name='Wall_23'>
+        <collision name='Wall_23_Collision'>
           <geometry>
             <box>
-              <size>0.86 0.15 2.5</size>
+              <size>0.75 0.15 2.5</size>
             </box>
           </geometry>
           <pose>0 0 1.25 0 -0 0</pose>
@@ -518,34 +585,32 @@
             </friction>
           </surface>
         </collision>
-        <visual name='Wall_24_Visual'>
+        <visual name='Wall_23_Visual'>
           <pose>0 0 1.25 0 -0 0</pose>
           <geometry>
             <box>
-              <size>0.86 0.15 2.5</size>
+              <size>0.75 0.15 2.5</size>
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
-            <ambient>1 1 1 1</ambient>
+            <ambient>0.7 0.5 0.3 1</ambient>
+            <diffuse>0.7 0.5 0.3 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
           </material>
           <meta>
             <layer>0</layer>
           </meta>
         </visual>
-        <pose>1.50039 0.379411 0 0 -0 3.14159</pose>
+        <pose>0.359393 -1.29184 0 0 -0 -1.5708</pose>
         <self_collide>0</self_collide>
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
       </link>
-      <link name='Wall_26'>
-        <collision name='Wall_26_Collision'>
+      <link name='Wall_25'>
+        <collision name='Wall_25_Collision'>
           <geometry>
             <box>
-              <size>1.61086 0.15 2.5</size>
+              <size>0.75 0.15 2.5</size>
             </box>
           </geometry>
           <pose>0 0 1.25 0 -0 0</pose>
@@ -563,70 +628,23 @@
             </friction>
           </surface>
         </collision>
-        <visual name='Wall_26_Visual'>
+        <visual name='Wall_25_Visual'>
           <pose>0 0 1.25 0 -0 0</pose>
           <geometry>
             <box>
-              <size>1.61086 0.15 2.5</size>
+              <size>0.75 0.15 2.5</size>
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
-            <ambient>1 1 1 1</ambient>
+            <ambient>0.7 0.5 0.3 1</ambient>
+            <diffuse>0.7 0.5 0.3 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
           </material>
           <meta>
             <layer>0</layer>
           </meta>
         </visual>
-        <pose>1.14039 -0.350589 0 0 -0 -1.57765</pose>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-      <link name='Wall_28'>
-        <collision name='Wall_28_Collision'>
-          <geometry>
-            <box>
-              <size>0.89027 0.15 2.5</size>
-            </box>
-          </geometry>
-          <pose>0 0 1.25 0 -0 0</pose>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='Wall_28_Visual'>
-          <pose>0 0 1.25 0 -0 0</pose>
-          <geometry>
-            <box>
-              <size>0.89027 0.15 2.5</size>
-            </box>
-          </geometry>
-          <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
-            <ambient>1 1 1 1</ambient>
-          </material>
-          <meta>
-            <layer>0</layer>
-          </meta>
-        </visual>
-        <pose>0.785387 -0.330589 0 0 -0 3.14159</pose>
+        <pose>-0.732702 -0.325621 0 0 -0 0</pose>
         <self_collide>0</self_collide>
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
@@ -635,7 +653,7 @@
         <collision name='Wall_3_Collision'>
           <geometry>
             <box>
-              <size>3.83 0.15 2.5</size>
+              <size>3.5 0.15 2.5</size>
             </box>
           </geometry>
           <pose>0 0 1.25 0 -0 0</pose>
@@ -657,21 +675,19 @@
           <pose>0 0 1.25 0 -0 0</pose>
           <geometry>
             <box>
-              <size>3.83 0.15 2.5</size>
+              <size>3.5 0.15 2.5</size>
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
-            <ambient>1 1 1 1</ambient>
+            <ambient>0.55 0.35 0.15 1</ambient>
+            <diffuse>0.55 0.35 0.15 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
           </material>
           <meta>
             <layer>0</layer>
           </meta>
         </visual>
-        <pose>0.005387 1.81941 0 0 -0 0</pose>
+        <pose>-0 1.66452 0 0 -0 3.14159</pose>
         <self_collide>0</self_collide>
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
@@ -680,7 +696,7 @@
         <collision name='Wall_4_Collision'>
           <geometry>
             <box>
-              <size>3.78012 0.15 2.5</size>
+              <size>3.5 0.15 2.5</size>
             </box>
           </geometry>
           <pose>0 0 1.25 0 -0 0</pose>
@@ -702,30 +718,28 @@
           <pose>0 0 1.25 0 -0 0</pose>
           <geometry>
             <box>
-              <size>3.78012 0.15 2.5</size>
+              <size>3.5 0.15 2.5</size>
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
-            <ambient>1 1 1 1</ambient>
+            <ambient>0.55 0.35 0.15 1</ambient>
+            <diffuse>0.55 0.35 0.15 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
           </material>
           <meta>
             <layer>0</layer>
           </meta>
         </visual>
-        <pose>1.85039 0.004411 0 0 -0 -1.56804</pose>
+        <pose>-1.675 -0.010479 0 0 -0 -1.5708</pose>
         <self_collide>0</self_collide>
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
       </link>
-      <link name='Wall_5'>
-        <collision name='Wall_5_Collision'>
+      <link name='Wall_6'>
+        <collision name='Wall_6_Collision'>
           <geometry>
             <box>
-              <size>3.82001 0.15 2.5</size>
+              <size>0.75 0.15 2.5</size>
             </box>
           </geometry>
           <pose>0 0 1.25 0 -0 0</pose>
@@ -743,34 +757,32 @@
             </friction>
           </surface>
         </collision>
-        <visual name='Wall_5_Visual'>
+        <visual name='Wall_6_Visual'>
           <pose>0 0 1.25 0 -0 0</pose>
           <geometry>
             <box>
-              <size>3.82001 0.15 2.5</size>
+              <size>0.75 0.15 2.5</size>
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
-            <ambient>1 1 1 1</ambient>
+            <ambient>0.7 0.5 0.3 1</ambient>
+            <diffuse>0.7 0.5 0.3 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
           </material>
           <meta>
             <layer>0</layer>
           </meta>
         </visual>
-        <pose>0.020387 -1.81559 0 0 -0 -3.13887</pose>
+        <pose>-1.01091 -1.28851 0 0 -0 -1.5708</pose>
         <self_collide>0</self_collide>
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
       </link>
-      <link name='Wall_7'>
-        <collision name='Wall_7_Collision'>
+      <link name='Wall_8'>
+        <collision name='Wall_8_Collision'>
           <geometry>
             <box>
-              <size>0.840072 0.15 2.5</size>
+              <size>0.75 0.15 2.5</size>
             </box>
           </geometry>
           <pose>0 0 1.25 0 -0 0</pose>
@@ -788,70 +800,23 @@
             </friction>
           </surface>
         </collision>
-        <visual name='Wall_7_Visual'>
+        <visual name='Wall_8_Visual'>
           <pose>0 0 1.25 0 -0 0</pose>
           <geometry>
             <box>
-              <size>0.840072 0.15 2.5</size>
+              <size>0.75 0.15 2.5</size>
             </box>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
-            <ambient>1 1 1 1</ambient>
+            <ambient>0.7 0.5 0.3 1</ambient>
+            <diffuse>0.7 0.5 0.3 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
           </material>
           <meta>
             <layer>0</layer>
           </meta>
         </visual>
-        <pose>-1.09961 -1.46559 0 0 -0 1.58529</pose>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-      <link name='Wall_9'>
-        <collision name='Wall_9_Collision'>
-          <geometry>
-            <box>
-              <size>0.910066 0.15 2.5</size>
-            </box>
-          </geometry>
-          <pose>0 0 1.25 0 -0 0</pose>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='Wall_9_Visual'>
-          <pose>0 0 1.25 0 -0 0</pose>
-          <geometry>
-            <box>
-              <size>0.910066 0.15 2.5</size>
-            </box>
-          </geometry>
-          <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
-            <ambient>1 1 1 1</ambient>
-          </material>
-          <meta>
-            <layer>0</layer>
-          </meta>
-        </visual>
-        <pose>-1.47461 0.404411 0 0 -0 0.013157</pose>
+        <pose>1.04584 1.38548 0 0 -0 1.5708</pose>
         <self_collide>0</self_collide>
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
@@ -859,121 +824,121 @@
       <static>1</static>
     </model>
     <state world_name='default'>
-      <sim_time>227 748000000</sim_time>
-      <real_time>230 242661921</real_time>
-      <wall_time>1775518283 65400638</wall_time>
-      <iterations>227748</iterations>
-      <model name='Mapa_reto'>
-        <pose>-0.025387 0.000589 0 0 -0 0</pose>
-        <scale>1 1 1</scale>
-        <link name='Wall_10'>
-          <pose>-1.115 0.765 0 0 -0 1.55671</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-        <link name='Wall_11'>
-          <pose>-0.365 1.125 0 0 -0 0.006711</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-        <link name='Wall_14'>
-          <pose>0.36 -1.45 0 0 -0 1.5708</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-        <link name='Wall_15'>
-          <pose>-0 -1.115 0 0 -0 3.12771</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-        <link name='Wall_16'>
-          <pose>-0.355 -0.365 0 0 -0 1.56408</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-        <link name='Wall_18'>
-          <pose>-0.725 -0.33 0 0 -0 3.14159</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-        <link name='Wall_2'>
-          <pose>-1.86 -0.01 0 0 -0 1.5708</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-        <link name='Wall_20'>
-          <pose>0.38 0.755 0 0 0 -1.5708</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-        <link name='Wall_22'>
-          <pose>1.105 1.49 0 0 0 -1.55651</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-        <link name='Wall_24'>
-          <pose>1.475 0.38 0 0 -0 3.14159</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-        <link name='Wall_26'>
-          <pose>1.115 -0.35 0 0 0 -1.57765</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-        <link name='Wall_28'>
-          <pose>0.76 -0.33 0 0 -0 3.14159</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-        <link name='Wall_3'>
-          <pose>-0.02 1.82 0 0 -0 0</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-        <link name='Wall_4'>
-          <pose>1.825 0.005 0 0 0 -1.56804</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-        <link name='Wall_5'>
-          <pose>-0.005 -1.815 0 0 0 -3.13887</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-        <link name='Wall_7'>
-          <pose>-1.125 -1.465 0 0 -0 1.58529</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-        <link name='Wall_9'>
-          <pose>-1.5 0.405 0 0 -0 0.013157</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
+      <sim_time>45 851000000</sim_time>
+      <real_time>46 29836189</real_time>
+      <wall_time>1777687750 182475231</wall_time>
+      <iterations>45851</iterations>
       <model name='ground_plane'>
         <pose>0 0 0 0 -0 0</pose>
         <scale>1 1 1</scale>
         <link name='link'>
           <pose>0 0 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='maze'>
+        <pose>-0.02811 -0.007464 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='Wall_1'>
+          <pose>-0.02811 -1.69294 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+        <link name='Wall_10'>
+          <pose>1.02643 -0.333941 0 0 -0 1.5708</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+        <link name='Wall_11'>
+          <pose>1.32643 0.341058 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+        <link name='Wall_13'>
+          <pose>0.622083 -0.321985 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+        <link name='Wall_16'>
+          <pose>0.326311 0.676183 0 0 -0 1.5708</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+        <link name='Wall_17'>
+          <pose>-0.348689 1.0093 0 0 -0 3.14159</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+        <link name='Wall_18'>
+          <pose>-1.02485 0.676183 0 0 0 -1.57428</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+        <link name='Wall_19'>
+          <pose>-1.32601 0.343075 0 0 -0 3.14159</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+        <link name='Wall_2'>
+          <pose>1.64689 -0.017943 0 0 -0 1.5708</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+        <link name='Wall_21'>
+          <pose>-0.344878 -0.321982 0 0 0 -1.5708</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+        <link name='Wall_22'>
+          <pose>-0.006798 -0.998142 0 0 0 -0.003432</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+        <link name='Wall_23'>
+          <pose>0.331283 -1.2993 0 0 0 -1.5708</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+        <link name='Wall_25'>
+          <pose>-0.760812 -0.333085 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+        <link name='Wall_3'>
+          <pose>-0.02811 1.65706 0 0 -0 3.14159</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+        <link name='Wall_4'>
+          <pose>-1.70311 -0.017943 0 0 0 -1.5708</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+        <link name='Wall_6'>
+          <pose>-1.03902 -1.29597 0 0 0 -1.5708</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+        <link name='Wall_8'>
+          <pose>1.01773 1.37802 0 0 -0 1.5708</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
@@ -985,7 +950,7 @@
     </state>
     <gui fullscreen='0'>
       <camera name='user_camera'>
-        <pose>5.32482 -5.07165 3.41594 0 0.275643 2.35619</pose>
+        <pose>-1.52289 1.02675 12.4396 0 1.45164 -0.322966</pose>
         <view_controller>orbit</view_controller>
         <projection_type>perspective</projection_type>
       </camera>
