@@ -24,7 +24,7 @@
 
     <!-- Spawn robot -->
     <node pkg="ros_gz_sim" exec="create" output="screen"
-          args="-name puzzlebot -topic robot_description -x $(var x_pose) -y $(var y_pose) -z 0.1 -Y 3.14159"
+          args="-name puzzlebot -topic robot_description -x $(var x_pose) -y $(var y_pose) -z 0.1 -Y 3.1459"
           name="spawn_puzzlebot"/>
 
     <!-- Bridge -->
