@@ -24,7 +24,7 @@ El proyecto se divide en tres paquetes modulares para facilitar la escalabilidad
 
 ---
 
-## 🛠️ Prerrequisitos y Entorno
+## Prerrequisitos y Entorno
 
 * **Sistema Operativo:** Ubuntu 22.04 LTS
 * **ROS 2:** Humble Hawksbill
@@ -33,7 +33,7 @@ El proyecto se divide en tres paquetes modulares para facilitar la escalabilidad
 
 ---
 
-## 🚀 Inicialización y Ejecución
+## Inicialización y Ejecución
 
 Sigue estos comandos en tu terminal para poner en marcha el proyecto:
 
