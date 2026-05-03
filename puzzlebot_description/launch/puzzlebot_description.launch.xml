@@ -3,7 +3,7 @@
     <arg name="rviz" default="false" />
     <arg name="gazebo" default="false" />
     <arg name="joint_gui" default="false" />
-    <arg name="use_sim_time" default="false" />
+    <arg name="use_sim_time" default="true" />
     <arg name="rqt_tree" default="false" />
 
     <let name="urdf_path" value="$(find-pkg-share puzzlebot_description)/urdf/puzzlebot.urdf.xacro" />

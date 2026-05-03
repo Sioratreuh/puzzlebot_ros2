@@ -11,11 +11,11 @@
                     name="ignition::gazebo::systems::DiffDrive">
                 <left_joint>${prefix}wheel_l_joint</left_joint>
                 <right_joint>${prefix}wheel_r_joint</right_joint>
-                <wheel_separation>0.17</wheel_separation>
+                <wheel_separation>0.19</wheel_separation>
                 <wheel_radius>0.045</wheel_radius>
-                <topic>${prefix}cmd_vel</topic>
-                <tf_topic>${prefix}diff_drive/tf</tf_topic>
-                <odom_topic>${prefix}odom</odom_topic>
+                <topic>/cmd_vel</topic>
+                <odom_topic>/odom</odom_topic>
+                <tf_topic>/model/puzzlebot/tf</tf_topic>
                 <frame_id>${prefix}odom</frame_id>
                 <child_frame_id>${prefix}base_footprint</child_frame_id>
                 <odom_publish_frequency>50</odom_publish_frequency>

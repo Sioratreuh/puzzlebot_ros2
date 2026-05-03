@@ -24,12 +24,13 @@
 
     <!-- Spawn robot -->
     <node pkg="ros_gz_sim" exec="create" output="screen"
-          args="-name puzzlebot -topic robot_description -x $(var x_pose) -y $(var y_pose) -z 0.1 -Y 0.0"
+          args="-name puzzlebot -topic robot_description -x $(var x_pose) -y $(var y_pose) -z 0.05 -Y -1.57"
           name="spawn_puzzlebot"/>
 
     <!-- Bridge -->
     <node pkg="ros_gz_bridge" exec="parameter_bridge" output="screen">
         <param name="config_file" value="$(var gazebo_bridge_config_path)"/>
+        <param name="use_sim_time" value="true"/> 
     </node>
 
 </launch>
