@@ -18,14 +18,14 @@
       <inertia ixx="0.01" iyy="0.01" izz="0.01" ixy="0.0" ixz="0.0" iyz="0.0"/>
     </inertial>
     <visual>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <origin xyz="-0.052 0 0" rpy="0 0 0"/>
       <geometry>
         <mesh filename="file://$(find puzzlebot_description)/meshes/Puzzlebot_Jetson_Lidar_Edition_Base.stl" scale="1 1 1"/>
       </geometry>
       <material name="green"/>
     </visual>
     <collision>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <origin xyz="-0.052 0 0" rpy="0 0 0"/>
       <geometry>
         <mesh filename="file://$(find puzzlebot_description)/meshes/Puzzlebot_Jetson_Lidar_Edition_Base.stl" scale="1 1 1"/>
       </geometry>
@@ -93,27 +93,27 @@
   <joint name="base_link_joint" type="fixed">
     <parent link="base_footprint"/>
     <child link="base_link"/>
-    <origin xyz="0 0 0.05"/>
+    <origin xyz="0.052 0 0.05"/>
   </joint>
 
   <joint name="wheel_r_joint" type="continuous">
     <parent link="base_link"/>
     <child link="wheel_r_link"/>
-    <origin xyz="0.052 -0.095 -0.0025"/>
+    <origin xyz="0.0 -0.095 -0.0025"/>
     <axis xyz="0 1 0"/>
   </joint>
 
   <joint name="wheel_l_joint" type="continuous">
     <parent link="base_link"/>
     <child link="wheel_l_link"/>
-    <origin xyz="0.052 0.095 -0.0025"/>
+    <origin xyz="0.0 0.095 -0.0025"/>
     <axis xyz="0 1 0"/>
   </joint>
 
   <joint name="caster_joint" type="fixed">
     <parent link="base_link"/>
     <child link="caster_link"/>
-    <origin xyz="-0.095 0.0 -0.043"/>
+    <origin xyz="-0.147 0.0 -0.043"/>
   </joint>
 
   <gazebo reference="wheel_l_link">

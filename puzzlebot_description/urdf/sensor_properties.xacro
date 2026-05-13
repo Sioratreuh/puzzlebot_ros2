@@ -184,7 +184,7 @@
             <xacro:property name="jetson_mesh_pos_w" value="0.0"/>
 
         <!--jetson Joint parameters-->
-            <xacro:property name="jetson_pos_x" value="0.035"/>
+            <xacro:property name="jetson_pos_x" value="0.0"/>
             <xacro:property name="jetson_pos_y" value="-0.003"/>
             <xacro:property name="jetson_pos_z" value="${chassis_height/2}"/>
             <xacro:property name="jetson_pos_r" value="0.0"/>
