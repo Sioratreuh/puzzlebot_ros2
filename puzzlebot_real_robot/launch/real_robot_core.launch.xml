@@ -1,31 +1,28 @@
 <launch>
-    <!-- Launch file for real robot hardware (Jetson/Hackerboard) -->
-    <!-- Brings up: micro_ros_agent, RPLiDAR, robot_state_publisher, localization, joint states -->
 
-    <!-- micro_ros_agent: publishes encoder velocities, subscribes to cmd_vel -->
-    <include file="$(find-pkg-share puzzlebot_ros)/launch/micro_ros_agent.launch.py"/>
+    <!-- micro_ros_agent — ruta absoluta por instalación incorrecta de puzzlebot_ros -->
+    <include file="/home/puzzlebot/ros2_ws/install/puzzlebot_ros/share/puzzlebot_ros/micro_ros_agent.launch.py"/>
 
-    <!-- RPLiDAR A1: publishes /scan topic -->
-    <!-- Adjust serial_port if device path changes -->
+    <!-- RPLiDAR A1 — publica /scan -->
     <include file="$(find-pkg-share rplidar_ros)/launch/rplidar_a1_launch.py">
         <arg name="serial_port" value="/dev/ttyUSB1"/>
         <arg name="frame_id"    value="laser_frame"/>
     </include>
 
-    <!-- Robot State Publisher: broadcasts static TF from URDF -->
+    <!-- Robot State Publisher — publica TF estáticos del URDF -->
     <include file="$(find-pkg-share puzzlebot_description)/launch/puzzlebot_description.launch.xml">
         <arg name="use_sim_time" value="false"/>
         <arg name="rviz"         value="false"/>
         <arg name="gazebo"       value="false"/>
     </include>
 
-    <!-- Localization: reads encoders, publishes /odom -->
+    <!-- Localization node — lee encoders, publica /odom -->
     <node pkg="puzzlebot_real_robot"
           exec="puzzlebot_localization.py"
           name="puzzlebot_localization"
           output="screen"/>
 
-    <!-- Joint State Publisher: publishes /joint_states and odom->base_footprint TF -->
+    <!-- Joint State Publisher — lee /odom, publica /joint_states + TF odom->base_footprint -->
     <node pkg="puzzlebot_real_robot"
           exec="puzzlebot_joint_state_publisher.py"
           name="puzzlebot_joint_state_publisher"
