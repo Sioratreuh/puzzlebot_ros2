@@ -1,4 +1,3 @@
-# SLAM Toolbox configuration for real robot
 slam_toolbox:
   ros__parameters:
     use_sim_time: false
@@ -11,6 +10,7 @@ slam_toolbox:
     transform_publish_period: 0.05  # Publish TF at 20 Hz
     map_update_interval: 2.0  # Update map every 2 seconds
     resolution: 0.05  # 5cm cells
+    min_laser_range: 0.25
     max_laser_range: 12.0
     minimum_time_interval: 0.5
     tf_buffer_duration: 30.0
