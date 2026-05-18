@@ -1,0 +1,27 @@
+<launch>
+    <!--
+    slam_real.launch.xml
+    ====================
+    Genera el mapa del entorno físico usando SLAM Toolbox.
+    Equivalente a slam.launch.xml de simulación.
+
+    Flujo:
+      real_robot_core -> hardware real levantado
+      slam_toolbox    -> construye el mapa en tiempo real
+
+    Ejecutar EN LA LAPTOP mientras el robot corre real_robot_core.
+    Cuando el mapa esté listo, guardarlo con:
+      ros2 run nav2_map_server map_saver_cli -f ~/mapa_real
+    -->
+
+    <!-- Levanta todo el hardware del robot -->
+    <include file="$(find-pkg-share puzzlebot_real_robot)/launch/real_robot_core.launch.xml"/>
+
+    <!-- SLAM Toolbox con configuración para robot físico -->
+    <include file="$(find-pkg-share slam_toolbox)/launch/online_async_launch.py">
+        <arg name="slam_params_file"
+             value="$(find-pkg-share puzzlebot_real_robot)/config/slam_toolbox_real.yaml"/>
+        <arg name="use_sim_time" value="false"/>
+    </include>
+
+</launch>

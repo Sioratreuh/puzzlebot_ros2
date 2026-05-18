@@ -1,0 +1,44 @@
+<launch>
+    <!--
+    nav2_real.launch.xml
+    ====================
+    Navegación autónoma con el Puzzlebot físico.
+    Equivalente a nav2.launch.xml de simulación.
+
+    Flujo:
+      real_robot_core -> hardware real levantado
+      nav2_bringup    -> AMCL + costmaps + planners
+      rviz2           -> visualización en laptop
+
+    Prerequisito: tener un mapa generado en maps/
+    Ejecutar EN LA LAPTOP mientras el robot corre real_robot_core.
+
+    Uso:
+      ros2 launch puzzlebot_real_robot nav2_real.launch.xml
+      ros2 launch puzzlebot_real_robot nav2_real.launch.xml map_path:=/ruta/a/mapa.yaml
+    -->
+
+    <arg name="map_path"
+         default="$(find-pkg-share puzzlebot_real_robot)/maps/my_map.yaml"/>
+    <arg name="nav2_params_file"
+         default="$(find-pkg-share puzzlebot_real_robot)/config/nav2_params_real.yaml"/>
+    <arg name="rviz_config_path"
+         default="$(find-pkg-share puzzlebot_navigation)/rviz/nav2.rviz"/>
+
+    <!-- Levanta todo el hardware del robot -->
+    <include file="$(find-pkg-share puzzlebot_real_robot)/launch/real_robot_core.launch.xml"/>
+
+    <!-- Nav2 bringup — AMCL, costmaps, planners -->
+    <include file="$(find-pkg-share nav2_bringup)/launch/bringup_launch.py">
+        <arg name="use_sim_time"  value="false"/>
+        <arg name="params_file"   value="$(var nav2_params_file)"/>
+        <arg name="map"           value="$(var map_path)"/>
+    </include>
+
+    <!-- RViz para visualización -->
+    <node pkg="rviz2" exec="rviz2" name="rviz2" output="screen"
+          args="-d $(var rviz_config_path)">
+        <param name="use_sim_time" value="false"/>
+    </node>
+
+</launch>
