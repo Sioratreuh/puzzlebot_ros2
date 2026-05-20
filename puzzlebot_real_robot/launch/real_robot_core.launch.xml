@@ -5,8 +5,8 @@
 
     <!-- RPLiDAR A1 — publica /scan -->
     <include file="$(find-pkg-share rplidar_ros)/launch/rplidar_a1_launch.py">
-        <arg name="serial_port" value="/dev/ttyUSB0"/>
-        <arg name="frame_id"    value="laser_frame"/>
+        <arg name="serial_port" value="/dev/ttyUSB1"/>
+        <arg name="frame_id"    value="laser_frame"/>   
     </include>
 
     <!-- Robot State Publisher directo — sin depender de puzzlebot_description -->
