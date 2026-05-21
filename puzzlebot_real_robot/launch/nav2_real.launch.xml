@@ -1,8 +1,4 @@
 <launch>
-    <!-- Nav2 autonomous navigation for physical robot -->
-    <!-- Run on laptop while robot executes real_robot_core.launch.xml -->
-    <!-- Usage: ros2 launch puzzlebot_real_robot nav2_real.launch.xml [map_path:=/path/to/map.yaml] -->
-
     <arg name="map_path"
          default="$(find-pkg-share puzzlebot_real_robot)/maps/my_map.yaml"/>
     <arg name="nav2_params_file"
@@ -10,8 +6,15 @@
     <arg name="rviz_config_path"
          default="$(find-pkg-share puzzlebot_navigation)/rviz/nav2.rviz"/>
 
-    <!-- Launch robot hardware -->
-    <!-- <include file="$(find-pkg-share puzzlebot_real_robot)/launch/real_robot_core.launch.xml"/> -->
+    <!-- Robot State Publisher en laptop para TFs estáticos locales -->
+    <let name="urdf_path"
+         value="$(find-pkg-share puzzlebot_description)/urdf/puzzlebot.urdf.xacro"/>
+    <node pkg="robot_state_publisher" exec="robot_state_publisher"
+          name="robot_state_publisher" output="screen">
+        <param name="robot_description"
+               value="$(command 'xacro $(var urdf_path)')"/>
+        <param name="use_sim_time" value="false"/>
+    </node>
 
     <!-- Nav2 stack: AMCL, costmaps, planners -->
     <include file="$(find-pkg-share nav2_bringup)/launch/bringup_launch.py">
@@ -25,10 +28,5 @@
           args="-d $(var rviz_config_path)">
         <param name="use_sim_time" value="false"/>
     </node>
-
-     <!-- Publica cmd_vel=0 al cerrar para detener el robot -->
-     <executable cmd="ros2 topic pub --once /cmd_vel geometry_msgs/msg/Twist '{linear: {x: 0.0}, angular: {z: 0.0}}'"
-               output="screen"
-               on_exit="shutdown"/>
 
 </launch>
