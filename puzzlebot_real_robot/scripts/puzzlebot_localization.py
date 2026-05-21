@@ -6,6 +6,8 @@ import numpy as np
 from rclpy.node import Node
 from std_msgs.msg import Float32
 from nav_msgs.msg import Odometry
+from rclpy.qos import QoSProfile, ReliabilityPolicy, DurabilityPolicy
+
 
 def quaternion_from_euler(ai, aj, ak):
     # Convert Euler angles (roll, pitch, yaw) to quaternion
@@ -40,8 +42,13 @@ class PuzzlebotLocalization(Node):
         self.wl = 0.0
 
         # Subscribe to encoder velocities
-        self.create_subscription(Float32, '/VelocityEncR', self.wr_callback, 10)
-        self.create_subscription(Float32, '/VelocityEncL', self.wl_callback, 10)
+        qos_sensor = QoSProfile(
+            reliability=ReliabilityPolicy.BEST_EFFORT,
+            durability=DurabilityPolicy.VOLATILE,
+            depth=10
+        )
+        self.create_subscription(Float32, '/VelocityEncR', self.wr_callback, qos_sensor)
+        self.create_subscription(Float32, '/VelocityEncL', self.wl_callback, qos_sensor)
 
         # Publish odometry
         self.odom_pub = self.create_publisher(Odometry, '/odom', 10)
