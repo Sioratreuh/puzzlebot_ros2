@@ -129,7 +129,7 @@
     <preserveFixedJoint>true</preserveFixedJoint>
     </gazebo>-->
 
-    <gazebo reference="${prefix}laser_frame">
+    <!-- gazebo reference="${prefix}laser_frame">
         <sensor name="${prefix}lidar_sensor" type="gpu_lidar">
             <topic>${prefix}${topic_name}</topic>
             <gz_frame_id>${prefix}laser_frame</gz_frame_id>
@@ -159,7 +159,7 @@
             </range>
             </ray>
         </sensor>
-    </gazebo>
+    </gazebo -->
 
     </xacro:macro>
 </robot>

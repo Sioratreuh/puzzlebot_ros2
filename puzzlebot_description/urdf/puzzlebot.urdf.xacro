@@ -2,7 +2,7 @@
 <robot name="Puzzlebot_Jetson_Lidar_Ed" xmlns:xacro="http://www.ros.org/wiki/xacro">
   <xacro:include filename="$(find puzzlebot_description)/urdf/sensor.xacro"/>
   <xacro:include filename="$(find puzzlebot_description)/urdf/macros.xacro"/>
-  <xacro:include filename="$(find puzzlebot_description)/urdf/puzzlebot_control.xacro"/>
+  <!-- xacro:include filename="$(find puzzlebot_description)/urdf/puzzlebot_control.xacro"/ -->
   <xacro:include filename="$(find puzzlebot_description)/urdf/sensor_properties.xacro"/>
 
   <xacro:arg name="prefix" default=""/>
@@ -138,7 +138,7 @@
     <material>Gazebo/Green</material>
   </gazebo>
 
-  <xacro:puzzlebot_control prefix="$(arg prefix)"/>
+  <!-- <xacro:puzzlebot_control prefix="$(arg prefix)"/> -->
   <xacro:rpi_lidar_sensor prefix="$(arg prefix)"/>
 
 </robot>
